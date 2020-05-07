@@ -1,1 +1,37 @@
+os: windows
 language: cpp
+
+before_install:
+    - wget -q https://download.qt.io/official_releases/qt/5.12/5.12.8/qt-opensource-windows-x86-5.12.8.exe
+
+install:
+    - ./qt-opensource-windows-x86-5.12.8.exe --script ./qt_installer_windows.qs
+    
+script:
+  - mkdir build
+  - cd build
+  - setx GOROOT "c:\Go"
+  - setx path "%path%;C:\Qt\5.12.8\mingw73_64\bin;C:\ProgramData\chocolatey\lib\yasm\tools"
+  - set PATH="%PATH%;C:\Qt\5.12.8\mingw73_64\bin;C:\ProgramData\chocolatey\lib\yasm\tools"
+  - qmake -DCMAKE_PREFIX_PATH="C:\Qt\5.12.8\mingw73_64\bin;C:\ProgramData\chocolatey\lib\yasm\tools" ..
+  - make
+
+  
+branches:
+  only:
+    - master
+    
+build_script:
+  - qmake testv2.pro
+  - mingw32-make
+after_build:
+  - windeployqt release/testv2.exe
+  - cmd: cp LICENSE release/LICENSE.txt"
+  - iscc innosetup.iss
+  - del release/*.o
+  - del release/*.cpp
+
+artifacts:
+  - path: Output\YOUR-APP-*.exe
+  - path: release
+  - type: zip
