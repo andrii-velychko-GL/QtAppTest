@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get update
 
 install:
-  - sudo apt-get install qt512-meta-minimal
+  - sudo apt-get install qt
   - source /opt/qt512/bin/qt512-env.sh
 
 
