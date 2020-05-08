@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get update
 
 install:
-  - sudo apt-get install qt512base qt512svg qt512charts-no-lgpl qt512xmlpatterns
+  - sudo apt-get install qt512base qt512svg qt512charts-no-lgpl qt512xmlpatterns qt512-meta-minimal qt512-meta-full qt512-meta-dbg-full
   - source /opt/qt512/bin/qt512-env.sh
 
 
