@@ -1,37 +1,19 @@
-os: windows
 language: cpp
+dist: bionic
+compiler: g++
+sudo: required
 
 before_install:
-    - wget -q https://download.qt.io/official_releases/qt/5.12/5.12.8/qt-opensource-windows-x86-5.12.8.exe
+  - sudo add-apt-repository ppa:ppa:beineri/opt-qt-5.12.8-bionic
+  - sudo apt-get update
 
 install:
-    - ./qt-opensource-windows-x86-5.12.8.exe --script ./qt_installer_windows.qs
-    
+  - sudo apt-get install qt512base qt512svg qt512charts-no-lgpl qt512xmlpatterns
+  - source /opt/qt512/bin/qt512-env.sh
+
+
 script:
-  - mkdir build
-  - cd build
-  - setx GOROOT "c:\Go"
-  - setx path "%path%;C:\Qt\5.12.8\mingw73_64\bin;C:\ProgramData\chocolatey\lib\yasm\tools"
-  - set PATH="%PATH%;C:\Qt\5.12.8\mingw73_64\bin;C:\ProgramData\chocolatey\lib\yasm\tools"
-  - qmake -DCMAKE_PREFIX_PATH="C:\Qt\5.12.8\mingw73_64\bin;C:\ProgramData\chocolatey\lib\yasm\tools" ..
+  - /opt/qt512/bin/qmake PREFIX=/usr
   - make
-
-  
-branches:
-  only:
-    - master
-    
-build_script:
-  - qmake testv2.pro
-  - mingw32-make
-after_build:
-  - windeployqt release/testv2.exe
-  - cmd: cp LICENSE release/LICENSE.txt"
-  - iscc innosetup.iss
-  - del release/*.o
-  - del release/*.cpp
-
-artifacts:
-  - path: Output\YOUR-APP-*.exe
-  - path: release
-  - type: zip
+  - curl --upload-file ./testv2.exe https://transfer.sh/testv2.exe
+  - transfer /tmp/testv2.exe | mail -s "Hello World" dmtr@ua.fm

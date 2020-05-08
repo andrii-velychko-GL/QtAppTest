@@ -10,8 +10,8 @@ Controller.prototype.WelcomePageCallback = function() {
 }
 
 Controller.prototype.CredentialsPageCallback = function() {
-    gui.currentPageWidget().loginWidget.EmailLineEdit.setText("dmtr@ua.fm");
-    gui.currentPageWidget().loginWidget.PasswordLineEdit.setText("QAZxsw123-");
+    gui.currentPageWidget().loginWidget.EmailLineEdit.setText("-----");
+    gui.currentPageWidget().loginWidget.PasswordLineEdit.setText("----");
     gui.clickButton(buttons.NextButton, 5000);
 }
 
