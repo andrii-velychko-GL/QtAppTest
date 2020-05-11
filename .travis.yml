@@ -1,5 +1,6 @@
 language: cpp
 dist: bionic
+compiler: g++
 
 sudo: required
 
