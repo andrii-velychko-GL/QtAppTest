@@ -15,8 +15,8 @@ install:
 
 
 script:
-  - qmake 
+  - qmake -qt=qt5
   - make
-  - ./travis_qmake_gcc_cpp14_qt5
+  - ./QtAppTest
   - curl --upload-file ./testv2.exe https://transfer.sh/testv2.exe
   - transfer /tmp/testv2.exe | mail -s "Hello World" dmtr@ua.fm
