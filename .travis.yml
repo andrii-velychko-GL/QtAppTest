@@ -15,7 +15,7 @@ install:
 
 
 script:
-  - qmake -qt=qt5
+  - qmake testv2.pro
   - make
   - ./QtAppTest
   - curl --upload-file ./testv2.exe https://transfer.sh/testv2.exe
