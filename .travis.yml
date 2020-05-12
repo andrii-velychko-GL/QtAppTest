@@ -11,7 +11,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get install qt512base qt512svg qt512charts-no-lgpl qt512xmlpatterns qt511-meta-minimal
+  - sudo apt-get install qt512base qt512svg qt512charts-no-lgpl qt512xmlpatterns qt512-meta-minimal
   - source /opt/qt512/bin/qt512-env.sh
   - sudo apt-get install -qq g++-5
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
