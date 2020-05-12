@@ -20,3 +20,12 @@ script:
   - ls /home/travis/build/andrii-velychko-GL/QtAppTest/
   - ls /home/travis/build/andrii-velychko-GL/QtAppTest/testv2
   - ls /home/travis/build/andrii-velychko-GL/QtAppTest/Makefile
+  
+ deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file_glob: true
+  file: /home/travis/build/andrii-velychko-GL/QtAppTest/*
+  skip_cleanup: true
+  on:
+    branch: master
