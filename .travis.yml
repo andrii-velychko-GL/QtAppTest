@@ -18,3 +18,5 @@ script:
   - make
   - pwd
   - ls /home/travis/build/andrii-velychko-GL/QtAppTest/
+  - ls /home/travis/build/andrii-velychko-GL/QtAppTest/testv2
+  - ls /home/travis/build/andrii-velychko-GL/QtAppTest/Makefile
