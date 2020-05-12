@@ -21,7 +21,7 @@ script:
   - ls /home/travis/build/andrii-velychko-GL/QtAppTest/testv2
   - ls /home/travis/build/andrii-velychko-GL/QtAppTest/Makefile
   
- deploy:
+deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
   file_glob: true
