@@ -19,7 +19,7 @@ install:
 
 
 script:
-  - /opt/qt512/bin/qmake PREFIX=/usr
+  - /opt/qt512/bin/qmake 
   - make
   - curl --upload-file ./testv2.exe https://transfer.sh/testv2.exe
   - transfer /tmp/testv2.exe | mail -s "Hello World" dmtr@ua.fm
