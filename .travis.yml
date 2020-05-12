@@ -1,22 +1,19 @@
 language: cpp
 dist: bionic
-compiler: g++
+compiler: gcc
 
 sudo: required
 
 before_install:
-  - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
   - sudo apt-get update -qq
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 
-install:
-  - sudo apt-get install -qq g++-5
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
-  - sudo apt-get install -qq qt512base qt512svg qt512charts-no-lgpl qt512xmlpatterns qt512-meta-minimal
-  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt512/bin/qmake  
 
 
 script:
-  - /opt/qt512/bin/qmake 
+  - /opt/qt512/bin/qmake testv2.pro
   - make
   - curl --upload-file ./testv2.exe https://transfer.sh/testv2.exe
   - transfer /tmp/testv2.exe | mail -s "Hello World" dmtr@ua.fm
