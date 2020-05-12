@@ -12,7 +12,7 @@ install:
   - sudo apt-get install -qq g++-5
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
   # Qt5
-  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev libqt5-dev
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev libqt5gui5
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 
 
