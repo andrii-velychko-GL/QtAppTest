@@ -27,7 +27,6 @@ deploy:
   file_glob: true
   file: /home/travis/build/andrii-velychko-GL/QtAppTest/*
   skip_cleanup: true
-  verbose: true
   on:
     branch: master
   edge: true
