@@ -11,8 +11,7 @@ before_install:
 install:
   - sudo apt-get install -qq g++-5
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
-  - sudo apt-get install qt512base qt512svg qt512charts-no-lgpl qt512xmlpatterns qt512-meta-minimal
-  - source /opt/qt512/bin/qt512-env.sh
+  - sudo apt-get install -qq qt512base qt512svg qt512charts-no-lgpl qt512xmlpatterns qt512-meta-minimal
   - export QMAKE=/usr/lib/x86_64-linux-gnu/qt512/bin/qmake  
 
 
