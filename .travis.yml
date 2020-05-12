@@ -7,13 +7,9 @@ before_install:
   - sudo add-apt-repository ppa:beineri/opt-qt58-trusty -y
   - sudo apt-get update
 
-install: 
-  # C++14
-  - sudo apt-get install -qq g++-5
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
-  # Qt5 1
-  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev libqt5gui5 qtbase5-dev-tools qt5-qmake
-  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+install:
+  - sudo apt-get install qt58base qt58svg qt58charts-no-lgpl qt58xmlpatterns
+  - source /opt/qt58/bin/qt58-env.sh
 
 
 
