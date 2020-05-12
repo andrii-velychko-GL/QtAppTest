@@ -29,4 +29,5 @@ deploy:
   file: /home/travis/build/andrii-velychko-GL/QtAppTest/*
   skip_cleanup: true
   on:
-    branch: master
+    tags: on
+
