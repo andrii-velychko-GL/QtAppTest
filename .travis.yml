@@ -16,3 +16,5 @@ install:
 script:
   - /opt/qt58/bin/qmake PREFIX=/usr
   - make
+  - pwd
+  - ls /home/travis/build/andrii-velychko-GL/QtAppTest/
