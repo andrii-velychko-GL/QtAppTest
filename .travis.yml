@@ -20,7 +20,7 @@ install:
 script:
   - /usr/lib/x86_64-linux-gnu/qt5/bin/qmake --version
   - /usr/lib/x86_64-linux-gnu/qt5/bin/qmake 
-  - qmake testv2.pro
+  - qmake -qt=qt5
   - make
   - curl --upload-file ./testv2.exe https://transfer.sh/testv2.exe
   - transfer /tmp/testv2.exe | mail -s "Hello World" dmtr@ua.fm
