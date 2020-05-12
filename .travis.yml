@@ -23,7 +23,7 @@ script:
   
 deploy:
   provider: releases
-  api_key: $GITHUB_TOKEN
+  github-token: $GITHUB_TOKEN
   file_glob: true
   file: /home/travis/build/andrii-velychko-GL/QtAppTest/*
   skip_cleanup: true
