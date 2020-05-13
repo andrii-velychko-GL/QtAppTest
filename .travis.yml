@@ -29,6 +29,6 @@ deploy:
   file: /home/travis/build/andrii-velychko-GL/QtAppTest/*
   skip_cleanup: true
   on:
-    tags: on
+    tags: off
 
 
